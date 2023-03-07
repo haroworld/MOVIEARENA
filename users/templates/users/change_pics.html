@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'nav.html' %}
+    <div class="flex justify-center bg-lightBlue p-6">
+        <form enctype="multipart/form-data" action="" method="POST" class="bg-white rounded-lg p-6 flex flex-col mt-10 w-9/12 md:w-96">
+
+            {% csrf_token %}
+            <h4 class="text-center font-bold mb-5">Change Profile Picture</h4>
+
+            <div class="flex justify-center">
+            <div class="w-40 h-40 flex flex-col">
+                <img src="{{request.user.profile.profile_image.url}}" class="w-full h-full">
+            </div>
+            </div>
+            {% for fields in form %}
+            <div class="border-b-1 border-darkBlue mb-5">
+                {{fields}}
+            </div>
+            <span class="text-red p-2 text-sm">{{field.errors}}</span>
+            {% endfor %}
+
+            <input type="submit" value="Change" class="mb-5 bg-darkBlue text-white p-2 cursor-pointer">
+        </form>
+    </div>
+
+    {% endblock content %}

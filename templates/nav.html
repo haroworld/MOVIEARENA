@@ -1,0 +1,46 @@
+<nav class="relative p-6 bg-lightBlue mb-10">
+    <div class="flex flex-row mx-auto justify-between max-w-3xl">
+    {% if request.user.is_authenticated %}
+    <ul class="hidden md:flex md:flex-row space-x-3">
+        <li class="text-white hover:border-b-2"><a href="{% url 'home' %}">HOME</a></li>
+        <li class="text-white hover:border-b-2"><a href="{% url 'movie_search' %}?search_query=cat_movie">MOVIES</a></li>
+        <li class="text-white hover:border-b-2"><a href="{% url 'movie_search' %}?search_query=Shows">TV SHOWS</a></li>
+        <li class="text-white hover:border-b-2"><a href="{% url 'category' %}">CARTEGORIES</a></li>
+    </ul>
+    <!--Hambuger Icon-->
+    <button id="menu-btn" class="block hamburger md:hidden focus:ouline-none">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+    </button>
+    <ul class="flex flex-row space-x-3">
+        <form method="get" action="{% url 'search_byname' %}">
+            <input id="search_movie" class="focus:outline-none px-2 py-1" type="search" placeholder="Search by movie name" name="search_by_name">
+        </form>
+        <div class="flex flex-row space-x-2 border-1 px-2">
+            <li class="text-darkBlue"><a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i></a></li>
+            <button id="btn-up" class="text-darkBlue hidden"><i class="fa-solid fa-square-caret-up"></i></button>
+            <button id="drop-btn" class="text-darkBlue"><i class="fa-solid fa-square-caret-down"></i></button>
+            <div id="drop-nav" class="absolute hidden flex flex-col bg-white mt-10 p-2">
+                <a class="text-sm" href="{% url 'logout' %}">Logout</a>
+                <a class="text-sm" href="{% url 'edit_profile' %}">Edit</a>
+            </div>
+        </div>
+
+    </ul>
+    {% else %}
+    <ul>
+        <li class="bg-black text-white p-2 rounded-lg"><a href="{% url 'mainPage' %}">MOVIE ARENA.</a></li>
+    </ul>
+    {% endif %}
+    </div>
+</nav>
+<div id="mobile-nav" class="hidden p-6 relative bg-darkBlue/30 backdrop-blur-xl md:hidden">
+    <ul class="flex flex-col space-y-3">
+        <li class="text-lightBlue hover:border-b-2"><a href="{% url 'home' %}">HOME</a></li>
+        <li class="text-lightBlue hover:border-b-2"><a href="{% url 'movie_search' %}?search_query=cat_movie">MOVIES</a></li>
+        <li class="text-lightBlue hover:border-b-2"><a href="{% url 'movie_search' %}?search_query=Shows">TV SHOWS</a></li>
+        <li class="text-lightBlue hover:border-b-2"><a href="{% url 'movie_search' %}?search_query=Cartoon">CARTOONS</a></li>
+        <li class="text-lightBlue hover:border-b-2"><a href="{% url 'category' %}">More Categories</a></li>
+    </ul>
+</div>

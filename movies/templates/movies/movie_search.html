@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+  {% include 'nav.html' %}
+    <section class="movie_search">
+        <div class="grid grid-cols-3 gap-4 md:grid-cols-5 mb-5 p-2">
+            
+            {% for movie in movies %}
+            <div class="min-w-[150px] h-32 md:w-[260px] md:h-40">
+                <a href="{% url 'movie' movie.id %}"><img class="w-full h-full" src="{{movie.movie_image.url}}"></a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock content %}

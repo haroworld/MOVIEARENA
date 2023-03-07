@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <nav class="h-96 relative p-3 bg-[url('../images/movie-img2.jpg')] bg-no-repeat bg-cover">
+        <div class="flex flex-row mx-auto justify-between max-w-3xl mb-20">
+            <ul>
+                <li class="bg-black text-lightBlue p-2 rounded-lg"><a href="">MOVIE ARENA.</a></li>
+            </ul>
+            <ul>
+                <li class="bg-black text-lightBlue p-2"><a href="{% url 'login' %}">Sign In</a></li>
+            </ul>
+        </div>
+
+        <div class="w-9/12 md:w-1/2 flex flex-col mx-auto justify-center">
+            <h1 class="text-white text-center self-center text-lg font-bold">Movie Arena, The best place to stream and download latest movies</h1>
+            <form action="" class="card" method="POST" id="signupMail">
+                {% csrf_token %}
+                <input id="email" class="focus:outline-none w-full" type="email" placeholder="Enter Email to Sign Up" name="email">
+                <!-- <input type="submit" value="submit" class="bg-darkBlue"> -->
+            </form>
+        </div>
+    </nav>
+
+    <section class="movie-categories">
+        <div class="grid sm:grid-row-3 md:grid-cols-3 h-75 md:h-36 content-center bg-black">
+            <div class="lightblack p-2">
+                <h1 class="text-lightBlue text-center font-bold"><a href="">Mobile Plan</a></h1>
+                <p class="text-lightBlue text-center"><i class="fa-solid fa-mobile"></i></p>
+                <p class="text-lightBlue text-center">800 Naira</p>
+            </div>
+            <div class="lightblack p-2">
+                <h1 class="text-lightBlue text-center font-bold text-lg"><a href="">Family Plan</a></h1>
+                <p class="text-lightBlue text-center">
+                    <i class="fa-solid fa-person"></i>
+                    <i class="fa-solid fa-person"></i>
+                    <i class="fa-solid fa-person"></i>
+                </p>
+                <p class="text-lightBlue text-center">3000 Naira</p>
+            </div>
+            <div class="lightblack p-2">
+                <h1 class="text-lightBlue text-center font-bold"><a href="">Family & Friends Plan</a></h1>
+                <p class="text-lightBlue text-center"><i class="fa-solid fa-user-group"></i></p>
+                <p class="text-lightBlue text-center">5000 Naira</p>
+            </div>
+        </div>
+        <div class="h-60 md:h-96 relative">
+            <img class="w-full h-full" src="/static/images/movie-image-showmax.jpg" alt="">
+        </div>
+    </section>
+
+{% endblock content %}

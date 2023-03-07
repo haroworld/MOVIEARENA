@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+{% block content %}
+  {% include 'nav.html' %}
+<section class="movies">
+  <div class="row mb-5">
+    <div class="header">
+      <h3 class="title text-white text-lg font-bold">Recently Added</h3>
+      <div class="progress-bar"></div>
+    </div>
+    <div class="containa">
+      <button class="handle left-handle">
+        <div class="text">&#8249;</div>
+      </button>
+      <div class="slider">
+        {% for movie in movies %}
+        <div>
+          <a href="{% url 'movie' movie.id %}"><img class="w-full h-full" src="{{movie.movie_image.url}}"></a>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="handle right-handle">
+        <div class="text">&#8250;</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="header">
+      <h3 class="title text-white text-lg font-bold">Tv shows</h3>
+      <div class="progress-bar"></div>
+    </div>
+    <div class="containa">
+      <button class="handle left-handle">
+        <div class="text">&#8249;</div>
+      </button>
+      <div class="slider">
+        
+        {% for shows in tvshows %}
+        <div>
+          <a href="{% url 'movie' shows.id %}"><img class="w-full h-full" src="{{shows.movie_image.url}}"></a>
+        </div>
+        {% endfor %}
+        
+      </div>
+      <button class="handle right-handle">
+        <div class="text">&#8250;</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="header">
+      <h3 class="title text-white text-lg font-bold">Movies</h3>
+      <div class="progress-bar"></div>
+    </div>
+    <div class="containa">
+      <button class="handle left-handle">
+        <div class="text">&#8249;</div>
+      </button>
+      <div class="slider">
+        
+        {% for movie_video in movie %}
+        <div>
+          <a href="{% url 'movie' movie_video.id %}"><img class="w-full h-full" src="{{movie_video.movie_image.url}}"></a>
+        </div>
+        {% endfor %}
+        
+      </div>
+      <button class="handle right-handle">
+        <div class="text">&#8250;</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="header">
+      <h3 class="title text-white text-lg font-bold">Cartoons</h3>
+      <div class="progress-bar"></div>
+    </div>
+    <div class="containa">
+      <button class="handle left-handle">
+        <div class="text">&#8249;</div>
+      </button>
+      <div class="slider">
+        
+        {% for cartoon in cartoons %}
+        <div>
+          <a href="{% url 'movie' cartoon.id %}"><img class="w-full h-full" src="{{cartoon.movie_image.url}}"></a>
+        </div>
+        {% endfor %}
+        
+      </div>
+      <button class="handle right-handle">
+        <div class="text">&#8250;</div>
+      </button>
+    </div>
+  </div>
+  </section>
+
+
+{% endblock content %}
+
